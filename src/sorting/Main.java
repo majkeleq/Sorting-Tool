@@ -6,9 +6,8 @@ public class Main {
     public static void main(final String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        SortingTool sortingTool = new SortingTool();
-        //String dataType = "word";
         String dataType = "word";
+        //String dataType = "sortIntegers";
         if(args.length != 0) {
             for (int i = 0; i < args.length; i += 2) {
                 if (args[i].equals("-sortIntegers") || dataType.equals("sortIntegers")) {
@@ -17,10 +16,22 @@ public class Main {
             }
         }
         switch (dataType) {
-            case "long" -> System.out.println(sortingTool.sortLong(sc));
-            case "line" -> System.out.println(sortingTool.sortLine(sc));
-            case "sortIntegers" -> System.out.println(sortingTool.sortIntegers(sc));
-            default -> System.out.println(sortingTool.sortWord(sc));
+            case "long" -> {
+                LongSorter longSorter = new LongSorter();
+                System.out.println(longSorter.run(sc));
+            }
+            case "line" -> {
+                LineSorter lineSorter = new LineSorter();
+                System.out.println(lineSorter.run(sc));
+            }
+            case "sortIntegers" -> {
+                IntegerSorter integerSorter = new IntegerSorter();
+                System.out.println(integerSorter.run(sc));
+            }
+            default -> {
+                WordSorter wordSorter = new WordSorter();
+                System.out.println(wordSorter.run(sc));
+            }
         }
 
     }
