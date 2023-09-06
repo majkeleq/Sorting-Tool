@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class IntegerSorter implements Sorter<Integer>{
     @Override
-    public StringBuilder run(Scanner sc) {
+    public StringBuilder run(Scanner sc, String sortingType) {
         ArrayList<Integer> numbers = new ArrayList<>();//added
         StringBuilder stringBuilder = new StringBuilder();
         while (sc.hasNextInt()) {
@@ -34,6 +34,17 @@ public class IntegerSorter implements Sorter<Integer>{
         }
         return sortedList;
     }
+
+    @Override
+    public StringBuilder naturalSort(ArrayList<Integer> arrayList) {
+        return null;
+    }
+
+    @Override
+    public StringBuilder sortByCount(ArrayList<Integer> arrayList) {
+        return null;
+    }
+
     private ArrayList<Integer> merge(List<Integer> left, List<Integer> right) {
         ArrayList<Integer> sortedList = new ArrayList<>();
         while (left.size() != 0 && right.size() != 0) {
